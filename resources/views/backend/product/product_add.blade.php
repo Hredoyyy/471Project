@@ -11,8 +11,8 @@
         <div class="card-body">
 
             <h4 class="card-title">Add Product Page </h4><br><br>
-
-
+            
+  
 
  <form method="post" action="{{ route('product.store') }}" id="myForm" >
                 @csrf
@@ -49,7 +49,7 @@
                @endforeach
                 </select>
         </div>
-    </div>
+    </div> 
   <!-- end row -->
 
 
@@ -66,18 +66,18 @@
         </div>
     </div>
   <!-- end row -->
-
-
+ 
+        
 <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Product">
             </form>
-
-
-
+             
+           
+           
         </div>
     </div>
 </div> <!-- end col -->
 </div>
-
+ 
 
 
 </div>
@@ -131,5 +131,5 @@
 </script>
 
 
-
+ 
 @endsection 

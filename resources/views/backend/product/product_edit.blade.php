@@ -11,8 +11,8 @@
         <div class="card-body">
 
             <h4 class="card-title">Edit Product Page </h4><br><br>
-
-
+            
+  
 
  <form method="post" action="{{ route('product.update') }}" id="myForm" >
                 @csrf
@@ -68,18 +68,18 @@
         </div>
     </div>
   <!-- end row -->
-
-
+ 
+        
 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Product">
             </form>
-
-
-
+             
+           
+           
         </div>
     </div>
 </div> <!-- end col -->
 </div>
-
+ 
 
 
 </div>
@@ -133,5 +133,5 @@
 </script>
 
 
-
+ 
 @endsection 

@@ -11,22 +11,22 @@
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0">Purchase All</h4>
 
-
+                                     
 
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
-
+                        
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
 
-    <a href="{{ route('purchase.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">  Purchase Pending </a> <br>  <br>                 
+    <a href="{{ route('purchase.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">  Purchase Pending </a> <br>  <br>               
 
                     <h4 class="card-title">Purchase All Pending Data </h4>
-
+                    
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -40,12 +40,12 @@
                             <th>Product Name</th> 
                             <th>Status</th>
                             <th>Action</th>
-
+                            
                         </thead>
 
 
                         <tbody>
-
+                        	 
                         	@foreach($allData as $key => $item)
             <tr>
                 <td> {{ $key+1}} </td>
@@ -69,22 +69,22 @@
 <a href="{{ route('purchase.approve',$item->id) }} " class="btn btn-danger sm" title="Approved" id="ApproveBtn">  <i class="fas fa-check-circle"></i> </a>
 @endif
                 </td>
-
+               
             </tr>
                         @endforeach
-
+                        
                         </tbody>
                     </table>
-
+        
                                     </div>
                                 </div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
-
-
-
+        
+                     
+                        
                     </div> <!-- container-fluid -->
                 </div>
-
+ 
 
 @endsection

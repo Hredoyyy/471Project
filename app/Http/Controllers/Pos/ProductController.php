@@ -10,22 +10,25 @@ use App\Models\Supplier;
 use App\Models\Unit;
 use Auth;
 use Illuminate\Support\Carbon;
-
+  
 class ProductController extends Controller
 {
     public function ProductAll(){
+
         $product = Product::latest()->get();
         return view('backend.product.product_all',compact('product'));
 
-    } // End Method
+    } // End Method 
+
 
     public function ProductAdd(){
+
         $supplier = Supplier::all();
         $category = Category::all();
         $unit = Unit::all();
         return view('backend.product.product_add',compact('supplier','category','unit'));
+    } // End Method 
 
-    } // End Method
 
     public function ProductStore(Request $request){
 
@@ -49,7 +52,9 @@ class ProductController extends Controller
 
     } // End Method 
 
-     public function ProductEdit($id){
+
+
+    public function ProductEdit($id){
 
         $supplier = Supplier::all();
         $category = Category::all();
@@ -82,10 +87,11 @@ class ProductController extends Controller
         return redirect()->route('product.all')->with($notification); 
 
 
-    } // End Method
+    } // End Method 
+
 
     public function ProductDelete($id){
-
+       
        Product::findOrFail($id)->delete();
             $notification = array(
             'message' => 'Product Deleted Successfully', 
@@ -98,4 +104,5 @@ class ProductController extends Controller
 
 
 
-}    
+}
+ 

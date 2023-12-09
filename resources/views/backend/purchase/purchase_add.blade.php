@@ -11,7 +11,7 @@
         <div class="card-body">
 
             <h4 class="card-title">Add Purchase  </h4><br><br>
-
+            
     <div class="row">
         <div class="col-md-4">
             <div class="md-3">
@@ -46,7 +46,7 @@
                 <label for="example-text-input" class="form-label">Category Name </label>
                 <select name="category_id" id="category_id" class="form-select" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
-
+                
                 </select>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <label for="example-text-input" class="form-label">Product Name </label>
                 <select name="product_id" id="product_id" class="form-select" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
-
+               
                 </select>
             </div>
         </div>
@@ -66,7 +66,7 @@
 <div class="col-md-4">
     <div class="md-3">
         <label for="example-text-input" class="form-label" style="margin-top:43px;">  </label>
-
+        
 
         <i class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore"> Add More</i>
     </div>
@@ -77,7 +77,7 @@
 
 
     </div> <!-- // end row  --> 
-
+           
         </div> <!-- End card-body -->
 <!--  ---------------------------------- -->
 
@@ -99,7 +99,7 @@
                 </thead>
 
                 <tbody id="addRow" class="addRow">
-
+                    
                 </tbody>
 
                 <tbody>
@@ -115,9 +115,9 @@
             </table><br>
             <div class="form-group">
                 <button type="submit" class="btn btn-info" id="storeButton"> Purchase Store</button>
-
+                
             </div>
-
+            
         </form>
 
 
@@ -125,25 +125,33 @@
 
 
 
-
         </div> <!-- End card-body -->
+
+
+ 
+
+
+
+
     </div>
 </div> <!-- end col -->
 </div>
-
+ 
 
 
 </div>
 </div>
+
+ 
 
 
 <script id="document-template" type="text/x-handlebars-template">
-
+     
 <tr class="delete_add_more_item" id="delete_add_more_item">
         <input type="hidden" name="date[]" value="@{{date}}">
         <input type="hidden" name="purchase_no[]" value="@{{purchase_no}}">
         <input type="hidden" name="supplier_id[]" value="@{{supplier_id}}">
-
+   
     <td>
         <input type="hidden" name="category_id[]" value="@{{category_id}}">
         @{{ category_name }}
@@ -178,6 +186,7 @@
 
 </script>
 
+
 <script type="text/javascript">
     $(document).ready(function(){
         $(document).on("click",".addeventmore", function(){
@@ -188,6 +197,8 @@
             var category_name = $('#category_id').find('option:selected').text();
             var product_id = $('#product_id').val();
             var product_name = $('#product_id').find('option:selected').text();
+
+
             if(date == ''){
                 $.notify("Date is Required" ,  {globalPosition: 'top right', className:'error' });
                 return false;
@@ -196,6 +207,7 @@
                 $.notify("Purchase No is Required" ,  {globalPosition: 'top right', className:'error' });
                 return false;
                  }
+
                   if(supplier_id == ''){
                 $.notify("Supplier is Required" ,  {globalPosition: 'top right', className:'error' });
                 return false;
@@ -208,6 +220,8 @@
                 $.notify("Product Field is Required" ,  {globalPosition: 'top right', className:'error' });
                 return false;
                  }
+
+
                  var source = $("#document-template").html();
                  var tamplate = Handlebars.compile(source);
                  var data = {
@@ -218,14 +232,17 @@
                     category_name:category_name,
                     product_id:product_id,
                     product_name:product_name
+
                  };
                  var html = tamplate(data);
                  $("#addRow").append(html); 
         });
+
         $(document).on("click",".removeeventmore",function(event){
             $(this).closest(".delete_add_more_item").remove();
             totalAmountPrice();
         });
+
         $(document).on('keyup click','.unit_price,.buying_qty', function(){
             var unit_price = $(this).closest("tr").find("input.unit_price").val();
             var qty = $(this).closest("tr").find("input.buying_qty").val();
@@ -233,7 +250,9 @@
             $(this).closest("tr").find("input.buying_price").val(total);
             totalAmountPrice();
         });
+
         // Calculate sum of amout in invoice 
+
         function totalAmountPrice(){
             var sum = 0;
             $(".buying_price").each(function(){
@@ -243,10 +262,11 @@
                 }
             });
             $('#estimated_amount').val(sum);
-        }
-        
-     });
-    
+        }  
+
+    });
+
+
 </script>
 
 
@@ -270,7 +290,9 @@
             })
         });
     });
+
 </script>
+
 
 <script type="text/javascript">
     $(function(){
@@ -290,10 +312,11 @@
             })
         });
     });
+
 </script>
 
+ 
 
 
-
-
-@endsection 
+ 
+@endsection
